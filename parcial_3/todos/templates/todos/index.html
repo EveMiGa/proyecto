@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #C7EFF8;
+        }
+
+        header {
+            background-color: #37B0CB;
+            padding: 20px;
+            color: #3498db;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: black;
+        }
+
+        p {
+            color: black;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #37B0CB;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer; /* Agregado para indicar que es un elemento interactivo */
+        }
+
+        /* Estilo para la ventana emergente */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #C7EFF8;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        /* Estilo para la capa oscura de fondo */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/logo.JPG" alt="Logo de CodeCollabHub" style="width: 70px; height: 70px; margin-left: 10px;">
+       <center> <h1>CodeCollabHub</h1>
+        <p>CodeCollabHub es una plataforma en línea que facilita la colaboración y co-creación de proyectos de desarrollo de 
+            software en tiempo real.
+        </p></center>
+    </header>
+
+    <section>
+        <h2>Únete a nosotros</h2>
+        <p>Esta plataforma permite a los desarrolladores de software de todo el mundo colaborar de manera eficiente, mejorar la productividad
+            y acelerar el proceso de desarrollo. </p>
+            <p>Nuestras características principales son:
+            </p>
+            <center><p><b>1. Entorno de Desarrollo Colaborativo</b></p>
+               
+                <p>-Herramientas de codificación en tiempo real que permiten a múltiples desarrolladores trabajar en el mismo código 
+                    simultáneamente, con cambios visibles en tiempo real.</p>
+                    <p>- Chat integrado para una comunicación instantánea entre los miembros del equipo.</p>
+                        <p>- Seguimiento de versiones para gestionar cambios y realizar rollbacks fácilmente.</p>
+                    
+                        <p><b>2. Marketplace de Colaboradores</b></p>
+                    <p>-Un marketplace donde los desarrolladores pueden ofrecer sus habilidades especializadas para trabajar en 
+                        proyectos específicos.</p>
+                    <p>-Sistema de clasificación y reseñas para garantizar la calidad del trabajo.</p>
+
+                    <p><b>3. Integraciones de Herramientas de Desarrollo</b></p>
+                    <p>- Integración con las herramientas de desarrollo más populares, como GitHub, GitLab, JIRA, etc., para una 
+                        transición sin problemas desde las plataformas existentes.</p>
+                    
+                    <p><b>4. Sistema de Pago Seguro</b></p>
+                    <p>- Un sistema de pago integrado que permite a los desarrolladores recibir pagos de manera segura por su 
+                        trabajo colaborativo.</p>
+
+                        <p><b>5. Protección de la Propiedad Intelectual</b></p>
+                    <p>-Funcionalidades avanzadas para proteger la propiedad intelectual, como control de acceso, gestión de derechos 
+                        y acuerdos de propiedad compartida.</p>
+        <!-- Cambiado el enlace a un botón y agregado el evento onclick -->
+        <button onclick="mostrarPopup()" class="cta-button">Obtener más información
+        
+    </button></section>
+
+    <!-- Ventana emergente y capa de fondo -->
+    <div id="miPopup" class="popup">
+        <center><h2>CodeCollabHub</h2></center>
+        <h3>Modelo de Negocio</h3>
+        <p><b>1.Suscripciones Mensuales/Anuales:</b>Ofrece diferentes niveles de suscripción para individuos y equipos, con características 
+            adicionales a medida que se escala.</p>
+            <p><b>2.Tarifas de Marketplace:</b>Cobra una pequeña tarifa por transacción para las colaboraciones realizadas a través del 
+                marketplace.</p>
+                <p><b>3.Servicios Premium:</b>Ofrece servicios de consultoría y soporte premium para empresas que necesitan asistencia adicional.
+                    </p>
+
+                    <h3>Beneficios para los Usuarios</h3>
+        <p><b>1.Aumento de la Productividad:</b>Permite a los equipos de desarrollo trabajar de manera más eficiente, reduciendo los tiempos de desarrollo.</p>
+            <p><b>2.Acceso a Talentos Globales:</b>Facilita la conexión con desarrolladores de todo el mundo, permitiendo la formación de equipos 
+                altamente especializados.</p>
+                <p><b>3.Mayor Calidad del Código:</b>La colaboración en tiempo real y las revisiones instantáneas mejoran la calidad del código resultante.</p>
+        <button onclick="cerrarPopup()" class="cta-button">Cerrar</button>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    <section id="formulario">
+        <h2>Contacto</h2>
+        <p>Completa el siguiente formulario para obtener más información.</p>
+        <form action="/procesar-formulario" method="post">
+            <!-- Aquí irían los campos del formulario -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br><br>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <input type="submit" value="Enviar" style="background-color: #37B0CB; color: white;">
+        </form>
+    </section>
+
+    <script>
+        function mostrarPopup() {
+            // Muestra la ventana emergente y la capa de fondo
+            document.getElementById('miPopup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function cerrarPopup() {
+            // Cierra la ventana emergente y la capa de fondo
+            document.getElementById('miPopup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
